@@ -1,0 +1,6 @@
+{
+  "help": [
+    {"text":"Get help: /garkahelp", "callback_data":"garkahelp"},
+    {"text":"new word: /addWord [word]", "callback_data":"addWord"}
+  ]
+}
