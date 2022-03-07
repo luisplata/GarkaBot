@@ -20,10 +20,15 @@ bot.onText(/^\/addWord (.+)/, function(msg){
 bot.on('message', (msg) => {
     const chatId = msg.chat.id;
     const resp = msg.text;
-    console.log(msg);
+    //console.log(msg);
     filter.Filter(resp, function (message) {
         bot.deleteMessage(chatId, msg.message_id, form = {});
     });
 });
-
-logger.info("Start");
+bot.on('channel_post', (msg) => {
+    const chatId = msg.chat.id;
+    const resp = msg.text;
+    filter.Filter(resp, function (message) {
+        bot.deleteMessage(chatId, msg.message_id, form = {});
+    });
+});
