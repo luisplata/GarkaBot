@@ -3,6 +3,7 @@ var entorno = require('./utilitys/config-modules.js').config();
 const bot = new TelegramBot(entorno.key, {polling:true});
 const wordController = require("./Controllers/AddWordFobidden.js");
 const filter = require("./Controllers/FilterWords.js");
+var logger = require("./utilitys/logs").log();
 bot.on('polling_error', function(error){
     console.log(error);
 });
@@ -24,3 +25,5 @@ bot.on('message', (msg) => {
         bot.deleteMessage(chatId, msg.message_id, form = {});
     });
 });
+
+logger.info("Start");
