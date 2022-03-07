@@ -5,8 +5,8 @@ var Filter = function(word, callback){
     var splitWord = word.split(' ');
     splitWord.forEach(function(value, index, array){
         mysql.Consulta("select * from palabras p where p.palabra like '"+value+"'",function(req){
-            logger.info(req);
             if(req.length > 0){
+                logger.warn(word);
                 callback("the word '"+word+"' is forbidden");
             }
         },function (err) {
